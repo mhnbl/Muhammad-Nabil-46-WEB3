@@ -38,8 +38,7 @@ $result = $conn->query($sql);
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/css/style.css" rel="stylesheet">
-  <link href="assets1\mystyle.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
 
 
 <body>
@@ -183,13 +182,14 @@ $result = $conn->query($sql);
   </div>
 </div>
 
+
   </main><!-- End #main -->
     
   <div class="breadcrumbs container-expand-lg my-5">
   </div>
 
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact pt-1">
+    <section id="contact" class="contact">
       <div class="container">
 
         <div class="section-title">
@@ -226,7 +226,7 @@ $result = $conn->query($sql);
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="kontak.php" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -242,17 +242,14 @@ $result = $conn->query($sql);
                 <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
               </div>
               <div class="my-3">
-                <div class="loading">Loading</div>
                 <div class="error-message"></div>
+                <div class="loading">loading</div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
               <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
-
           </div>
-
         </div>
-
       </div>
     </section>
 
@@ -265,8 +262,52 @@ $result = $conn->query($sql);
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/js/main.js"></script>
-  <script src="assets1\myscripts.js"></script>
+  <script src="main.js"></script>
+  <script>
+    var loginBtn = document.getElementById('loginBtn');
+  var overlay = document.getElementById('overlay');
+
+  loginBtn.addEventListener('click', function() {
+    overlay.style.display = 'block';
+  });
+
+  var closeBtn = document.getElementById('closeBtn');
+  var overlay = document.getElementById('overlay');
+
+  closeBtn.addEventListener('click', function() {
+    overlay.style.display = 'none';
+  });
+  // Fungsi untuk menyimpan username dan password ke localStorage
+  function saveLoginData(username, password) {
+    localStorage.setItem('username', username);
+    localStorage.setItem('password', password);
+  }
+
+  // Fungsi untuk mengambil data login dari localStorage dan mengisi formulir
+  function fillLoginForm() {
+    var storedUsername = localStorage.getItem('username');
+    var storedPassword = localStorage.getItem('password');
+    if (storedUsername && storedPassword) {
+      document.getElementById('username').value = storedUsername;
+      document.getElementById('password').value = storedPassword;
+    }
+  }
+
+  // Panggil fungsi fillLoginForm saat dokumen selesai dimuat
+  document.addEventListener('DOMContentLoaded', function() {
+    fillLoginForm();
+  });
+
+  // Tangani submit form
+  document.getElementById('loginForm').addEventListener('submit', function(event) {
+    // Jika opsi "Remember me" dicentang, simpan username dan password
+    if (document.getElementById('rememberMe').checked) {
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+      saveLoginData(username, password);
+    }
+  });
+  </script>
 
 
 </body>

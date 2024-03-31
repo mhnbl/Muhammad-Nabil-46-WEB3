@@ -37,34 +37,8 @@ $result = $conn->query($sql);
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/css/style.css" rel="stylesheet">
-  <link href="assets1/mystyle.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
   <title>MHNBL</title>
-
-<style>
-  #hero {
-    width: 100%;
-    height: 90vh;
-    background: url("assets1/12684.jpg") top center;
-    background-size: cover;
-    margin-bottom: -200px;
-  }
-    #hero h1 {
-    margin: 0;
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 56px;
-    text-transform: uppercase;
-    color: #fefefe;
-  }
-
-  #hero h2 {
-    color: #fefefe;
-    margin: 10px 0 0 0;
-    font-size: 24px;
-  }
-</style>
-
 </head>
 
 <body>
@@ -278,23 +252,28 @@ $result = $conn->query($sql);
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-          <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" role="form" class="php-email-form">
-            <div class="row">
-              <div class="col-md-6 form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+            <form action="kontak.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
               </div>
-              <div class="col-md-6 form-group mt-3 mt-md-0">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
               </div>
-            </div>
-            <div class="form-group mt-3">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-            </div>
-            <div class="form-group mt-3">
-              <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-            </div>
-            <div class="text-center"><button type="submit">Send Message</button></div>
-          </form>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="error-message"></div>
+                <div class="loading">loading</div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
           </div>
         </div>
       </div>
@@ -310,8 +289,7 @@ $result = $conn->query($sql);
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets\js\main.js"></script>
-  <script src="assets1\myscripts.js"></script>
+  <script src="main.js"></script>
 
 </body>
 

@@ -39,8 +39,7 @@ $result = $conn->query($sql);
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/css/style.css" rel="stylesheet">
- <link rel="stylesheet" href="assets1\mystyle.css">
+  <link href="style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -114,8 +113,7 @@ $result = $conn->query($sql);
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/js/main.js"></script>
-  <script src="assets1\myscripts.js"></script>
+  <script src="main.js"></script>
 
 
 </body>
