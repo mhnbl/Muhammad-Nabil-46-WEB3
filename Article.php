@@ -39,7 +39,7 @@ $result = $conn->query($sql);
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
-  <link href="mystyle.css" rel="stylesheet">
+  <link href="assets1\mystyle.css" rel="stylesheet">
 
 
 <body>
@@ -71,11 +71,11 @@ $result = $conn->query($sql);
         <ul>
           <li><a class="nav-link scrollto" href="index.php">Home</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a href="Article.php" class="nav-link scrollto active">Articles</a></li>
+          <li><a href="#" class="nav-link scrollto" id="loginBtn">Admin</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-      <a href="Article.php" class="appointment-btn scrollto"><span class="d-none d-md-inline">Articles</span></a>
-      <a href="#" class="appointment-btn scrollto ml-0" id="loginBtn"><span class="d-none d-md-inline">Login</span></a>
     </div>
   </header><!-- End Header -->
 
@@ -266,7 +266,7 @@ $result = $conn->query($sql);
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/js/main.js"></script>
-  <script src="myscripts.js"></script>
+  <script src="assets1\myscripts.js"></script>
 
 
 </body>

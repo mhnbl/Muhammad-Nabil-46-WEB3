@@ -34,8 +34,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['username'] = $username;
         header("location: admin.php"); // Ubah ke halaman yang sesuai setelah login
     } else {
-        // Jika kredensial salah, tampilkan pesan error
-        echo "Username atau password salah.";
+        // Jika kredensial salah, tampilkan pesan error menggunakan JavaScript alert
+        echo '<script>alert("Username atau password salah."); window.history.back();</script>';
+        
     }
 }
 ?>

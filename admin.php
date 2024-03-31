@@ -40,6 +40,7 @@ $result = $conn->query($sql);
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
+ <link rel="stylesheet" href="assets1\mystyle.css">
 </head>
 
 <body>
@@ -70,10 +71,10 @@ $result = $conn->query($sql);
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a href="Article.php" class="nav-link scrollto">Articles</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
-      <a href="Article.php" class="appointment-btn scrollto"><span class="d-none d-md-inline mr-0">Articles</span></a>
     </div>
   </header>
 
@@ -113,9 +114,9 @@ $result = $conn->query($sql);
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets1\myscripts.js"></script>
+
 
 </body>
 

@@ -37,10 +37,33 @@ $result = $conn->query($sql);
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets\css\style.css" rel="stylesheet">
-  <link href="mystyle.css" rel="stylesheet">
-
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets1/mystyle.css" rel="stylesheet">
   <title>MHNBL</title>
+
+<style>
+  #hero {
+    width: 100%;
+    height: 90vh;
+    background: url("assets1/12684.jpg") top center;
+    background-size: cover;
+    margin-bottom: -200px;
+  }
+    #hero h1 {
+    margin: 0;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    text-transform: uppercase;
+    color: #fefefe;
+  }
+
+  #hero h2 {
+    color: #fefefe;
+    margin: 10px 0 0 0;
+    font-size: 24px;
+  }
+</style>
 
 </head>
 
@@ -72,12 +95,11 @@ $result = $conn->query($sql);
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a href="Article.php" class="nav-link scrollto">Articles</a></li>
+          <li><a href="#" class="nav-link scrollto" id="loginBtn">Admin</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
-      <a href="Article.php" class="appointment-btn scrollto"><span class="d-none d-md-inline mr-0">Articles</span></a>
-      <!-- Tombol Login -->
-      <a href="#" class="appointment-btn scrollto ml-0" id="loginBtn"><span class="d-none d-md-inline">Login</span></a>
     </div>
   </header>
 
@@ -110,7 +132,7 @@ $result = $conn->query($sql);
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
-    <div class="container">
+    <div class="container ">
       <h1>Welcome to MHNBLab</h1>
       <h2>We are team of talented designers making websites with Bootstrap</h2>
       <a href="Article.php" class="btn-get-started scrollto">Find Articles</a>
@@ -126,7 +148,7 @@ $result = $conn->query($sql);
 
         <div class="row">
           <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch position-relative">
-            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a>
+            <a href="assets1/12684.jpg"></a>
           </div>
 
           <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
@@ -256,33 +278,27 @@ $result = $conn->query($sql);
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                </div>
+          <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" role="form" class="php-email-form">
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
               </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
               </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
+            </div>
+            <div class="form-group mt-3">
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+            </div>
+            <div class="form-group mt-3">
+              <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+            </div>
+            <div class="text-center"><button type="submit">Send Message</button></div>
+          </form>
           </div>
         </div>
       </div>
     </section>
-
   </main>
 
 
@@ -295,7 +311,7 @@ $result = $conn->query($sql);
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets\js\main.js"></script>
-  <script src="myscripts.js"></script>
+  <script src="assets1\myscripts.js"></script>
 
 </body>
 
