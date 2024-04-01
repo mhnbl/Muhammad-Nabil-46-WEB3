@@ -70,7 +70,7 @@ $result = $conn->query($sql);
         <ul>
           <li><a class="nav-link scrollto" href="index.php">Home</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a href="Article.php" class="nav-link scrollto active">Articles</a></li>
+          <li><a href="Article.php" class="nav-link scrollto">Articles</a></li>
           <li><a href="#" class="nav-link scrollto" id="loginBtn">Admin</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -226,7 +226,7 @@ $result = $conn->query($sql);
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form action="kontak.php" method="post" role="form" class="php-email-form">
+          <form action="kontak.php" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -264,49 +264,7 @@ $result = $conn->query($sql);
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="main.js"></script>
   <script>
-    var loginBtn = document.getElementById('loginBtn');
-  var overlay = document.getElementById('overlay');
-
-  loginBtn.addEventListener('click', function() {
-    overlay.style.display = 'block';
-  });
-
-  var closeBtn = document.getElementById('closeBtn');
-  var overlay = document.getElementById('overlay');
-
-  closeBtn.addEventListener('click', function() {
-    overlay.style.display = 'none';
-  });
-  // Fungsi untuk menyimpan username dan password ke localStorage
-  function saveLoginData(username, password) {
-    localStorage.setItem('username', username);
-    localStorage.setItem('password', password);
-  }
-
-  // Fungsi untuk mengambil data login dari localStorage dan mengisi formulir
-  function fillLoginForm() {
-    var storedUsername = localStorage.getItem('username');
-    var storedPassword = localStorage.getItem('password');
-    if (storedUsername && storedPassword) {
-      document.getElementById('username').value = storedUsername;
-      document.getElementById('password').value = storedPassword;
-    }
-  }
-
-  // Panggil fungsi fillLoginForm saat dokumen selesai dimuat
-  document.addEventListener('DOMContentLoaded', function() {
-    fillLoginForm();
-  });
-
-  // Tangani submit form
-  document.getElementById('loginForm').addEventListener('submit', function(event) {
-    // Jika opsi "Remember me" dicentang, simpan username dan password
-    if (document.getElementById('rememberMe').checked) {
-      var username = document.getElementById('username').value;
-      var password = document.getElementById('password').value;
-      saveLoginData(username, password);
-    }
-  });
+  
   </script>
 
 

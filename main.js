@@ -217,7 +217,13 @@
 
 })()
 
-var loginBtn = document.getElementById('loginBtn');
+  var closeBtn = document.getElementById("closeBtn");
+  closeBtn.addEventListener("click", function() {
+    var overlay = document.getElementById("overlay");
+    overlay.style.display = "none";
+  });
+
+  var loginBtn = document.getElementById('loginBtn');
   var overlay = document.getElementById('overlay');
 
   loginBtn.addEventListener('click', function() {
@@ -226,7 +232,6 @@ var loginBtn = document.getElementById('loginBtn');
 
   var closeBtn = document.getElementById('closeBtn');
   var overlay = document.getElementById('overlay');
-
   closeBtn.addEventListener('click', function() {
     overlay.style.display = 'none';
   });
@@ -261,3 +266,5 @@ var loginBtn = document.getElementById('loginBtn');
     }
   });
   
+
+      
