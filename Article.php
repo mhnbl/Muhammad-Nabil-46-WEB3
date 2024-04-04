@@ -39,10 +39,14 @@ $result = $conn->query($sql);
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="style.css" rel="stylesheet">
+  <style>
+    .overlay-content {
+    width: 400px; 
+    }
+  </style>
 
 
 <body>
-
   <!-- ======= Top Bar ======= -->
   <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex justify-content-between">
@@ -99,9 +103,8 @@ $result = $conn->query($sql);
 
     <div class="section-title">
       <h2>Artikel</h2>
-      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+      <p>Temukan rahasia kebugaran, nutrisi, dan kesehatan mental dalam koleksi artikel pilihan kami, dirancang untuk membantu Anda mencapai potensi terbaik Anda.</p>
     </div>
-    
     <div class="row gy-4">
       <div class="col-lg-3">
         <ul class="nav nav-tabs flex-column">
@@ -113,7 +116,7 @@ $result = $conn->query($sql);
           if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
               // Tampilkan judul artikel sebagai tab
-              echo "<li class='nav-item'>";
+              echo "<li class='nav-item px-1'>";
               echo "<a class='nav-link";
               if ($counter == 1) echo " active show"; // Aktifkan tab pertama
               echo "' data-bs-toggle='tab' href='#tab-" . $counter . "'>" . $row["judul"] . "</a>";

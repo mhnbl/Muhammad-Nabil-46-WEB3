@@ -39,6 +39,11 @@ $result = $conn->query($sql);
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="style.css" rel="stylesheet">
   <title>MHNBL</title>
+  <style>
+    .overlay-content {
+    width: 400px; 
+    }
+  </style>
 </head>
 
 <body>
@@ -108,7 +113,7 @@ $result = $conn->query($sql);
   <section id="hero" class="d-flex align-items-center">
     <div class="container ">
       <h1>Welcome to MHNBLab</h1>
-      <h2>We are team of talented designers making websites with Bootstrap</h2>
+      <h2>Discover Yourself, Understand Your Body - Let Us Guide You with the Information You Need</h2>
       <a href="Article.php" class="btn-get-started scrollto">Find Articles</a>
     </div>
   </section><!-- End Hero -->
@@ -220,11 +225,11 @@ $result = $conn->query($sql);
 
         <div class="section-title">
           <h2>Contact</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>Contact Us for Any Inquiries or Assistance.</p>
         </div>
       </div>
       <div class="container">
-        <div class="row mt-5">
+        <div class="row mt-3">
 
           <div class="col-lg-4">
             <div class="info">
@@ -237,13 +242,13 @@ $result = $conn->query($sql);
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
+                <p>mhnbl0521@gmail.com</p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
+                <p>+62 4289 5488 55</p>
               </div>
 
             </div>

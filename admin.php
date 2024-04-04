@@ -46,6 +46,12 @@ $result = $conn->query($sql);
     .overlay-content {
       width: 50rem; /* Lebar overlay */
       }
+      .table-responsive .table td {
+        max-width: 150px; 
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
   </style>
 
 </head>
@@ -74,10 +80,8 @@ $result = $conn->query($sql);
       <h1 class="logo me-auto"><a href="index.html">MHNBLab.</a></h1>
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto active" href="index.php">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto" href="index.php">Home</a></li>
+          <li><a class="nav-link scrollto" href="#comments">Contact</a></li>
           <li><a href="Article.php" class="nav-link scrollto">Articles</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -110,7 +114,7 @@ $result = $conn->query($sql);
     <div class="text-end mb-3">
       <button type="button" class="btn btn-primary" onclick="showOverlay('tambah')">Tambah Artikel</button>
     </div>
-    <div class="col-lg">
+    <div class="col-lg ">
       <div class="table-responsive">
         <table class="table table-bordered" id="articleTable">
           <thead>
@@ -276,14 +280,10 @@ $result = $conn->query($sql);
 <div class="breadcrumbs container-expand-lg"></div>
 <footer id="contact" class="contact">
       <div class="container">
-        <div class="section-title">
-          <h2>Contact</h2>
-        </div>
       </div>
-      <div class="container">
+      <div class="container py-5">
         <div class="row">
-
-          <div class="col-lg-4">
+          <div class="col-lg-4 pt-3">
             <div class="info">
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
