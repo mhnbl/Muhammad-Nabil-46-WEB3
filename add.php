@@ -17,7 +17,6 @@ if ($conn->connect_error) {
 $judul = $_POST['judul'];
 $deskripsi = $_POST['deskripsi'];
 $topik = $_POST['topik'];
-
 $penulis = $_POST['penulis'];
 $tanggal = $_POST['tanggal'];
 $link = $_POST['link'];

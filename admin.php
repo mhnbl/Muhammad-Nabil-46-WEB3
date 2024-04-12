@@ -141,8 +141,8 @@ $result = $conn->query($sql);
                 echo "<td>" . $row["tanggal"] . "</td>";
                 echo "<td><a href='" . $row["link"] . "' target='_blank'>Baca Selengkapnya</a></td>";
                 echo "<td>";
-                echo "<button type='button' class='btn btn-danger mx-2' onclick='confirmDelete(" . $row["id"] . ")'>Hapus</button>";
                 echo "<button type='button' class='btn btn-primary mx-2' onclick='showOverlay(\"update\", " . $row["id"] . ")'>Update</button>";
+                echo "<button type='button' class='btn btn-danger mx-2' onclick='confirmDelete(" . $row["id"] . ")'>Hapus</button>";
                 echo "</td>";
                 echo "</tr>";
               }
@@ -172,8 +172,19 @@ $result = $conn->query($sql);
           <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" required></textarea>
         </div>
         <div class="form-group">
-          <label for="deskripsi">Topik:</label>
-          <input class="form-control" id="topik" name="topik" required></input>
+          <label for="topik">Topik:</label><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="gaya_hidup" name="topik" value="Gaya Hidup" required>
+            <label class="form-check-label" for="gaya_hidup">Gaya Hidup</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="obat" name="topik" value="Obat">
+            <label class="form-check-label" for="obat">Obat</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="makan" name="topik" value="Makan">
+            <label class="form-check-label" for="makan">Makan</label>
+          </div>
         </div>
         <div class="form-group">
           <label for="penulis">Penulis:</label>
@@ -194,6 +205,7 @@ $result = $conn->query($sql);
 </div>
 
 
+
 <!-- Overlay untuk memperbarui artikel -->
 <div class="overlay" id="overlayUpdate">
   <div class="overlay-content">
@@ -201,41 +213,48 @@ $result = $conn->query($sql);
     <div id="overlayContentUpdate">
       <!-- Form untuk memperbarui artikel -->
       <h2>Update Artikel</h2>
-      <form action="update.php" method="post">
-        <!-- Input tersembunyi untuk menyimpan ID artikel yang akan diperbarui -->
-        <input type="hidden" name="id" id="updateId">
-        <!-- Select box untuk memilih kolom yang ingin diperbarui -->
-        <div class="form-group">
-          <label for="selectColumn">Pilih Kolom:</label>
-          <select class="form-control" id="selectColumn" name="selectColumn" onchange="showInputField(this.value)">
-            <option value="judul">Judul</option>
-            <option value="deskripsi">Deskripsi</option>
-            <option value="penulis">Penulis</option>
-            <option value="tanggal">Tanggal</option>
-            <option value="link">Link</option>
-          </select>
-        </div>
-        <!-- Form input field sesuai dengan kolom yang dipilih -->
-        <div id="inputField"></div>
-        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-      </form>
+        <form id="updateForm" action="update.php" method="post">
+            <input type="hidden" id="updateId" name="id">
+            <div class="form-group">
+                <label for="updateJudul">Judul:</label>
+                <input type="text" class="form-control" id="updateJudul" name="updatedJudul">
+            </div>
+            <div class="form-group">
+                <label for="updateDeskripsi">Deskripsi:</label>
+                <textarea class="form-control" id="updateDeskripsi" name="updatedDeskripsi" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="updateTopik">Topik:</label><br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="updateGayaHidup" name="updatedTopik" value="Gaya Hidup">
+                    <label class="form-check-label" for="updateGayaHidup">Gaya Hidup</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="updateObat" name="updatedTopik" value="Obat">
+                    <label class="form-check-label" for="updateObat">Obat</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="updateMakan" name="updatedTopik" value="Makan">
+                    <label class="form-check-label" for="updateMakan">Makan</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="updatePenulis">Penulis:</label>
+                <input type="text" class="form-control" id="updatePenulis" name="updatedPenulis">
+            </div>
+            <div class="form-group">
+                <label for="updateTanggal">Tanggal:</label>
+                <input type="date" class="form-control" id="updateTanggal" name="updatedTanggal">
+            </div>
+            <div class="form-group">
+                <label for="updateLink">Link:</label>
+                <input type="text" class="form-control" id="updateLink" name="updatedLink">
+            </div>
+            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+        </form>
     </div>
   </div>
 </div>
-
-<script>
-  function showInputField(selectedColumn) {
-    var inputField = document.getElementById('inputField');
-    inputField.innerHTML = '';
-
-    if (selectedColumn === 'tanggal') {
-      inputField.innerHTML = '<div class="form-group"><label for="updatedValue">Tanggal:</label><input type="date" class="form-control" id="updatedValue" name="updatedValue"></div>';
-    } else {
-      inputField.innerHTML = '<div class="form-group"><label for="updatedValue">' + selectedColumn.charAt(0).toUpperCase() + selectedColumn.slice(1) + ':</label><input type="text" class="form-control" id="updatedValue" name="updatedValue"></div>';
-    }
-  }
-</script>
-
 
 <div class="breadcrumbs container-expand-lg my-5"></div>
 
@@ -323,45 +342,40 @@ $result = $conn->query($sql);
   <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
   <script src="main.js"></script>
   
-<script>
-// Fungsi untuk menampilkan overlay
+  <script>
     function showOverlay(action, id = null) {
       if (action === "tambah") {
         document.getElementById("overlayTambah").style.display = "block";
-
-        document.getElementById("closeBtnTambah").addEventListener("click", function() {
-          closeOverlay(); 
-        });
       } else if (action === "update") {
         document.getElementById("overlayUpdate").style.display = "block";
-
-        document.getElementById("closeBtnUpdate").addEventListener("click", function() {
-          closeOverlay();
-        });
+        document.getElementById("updateId").value = id; // Mengisi nilai input tersembunyi dengan ID artikel yang akan diperbarui
       }
     }
 
-    // Fungsi untuk menutup overlay
     function closeOverlay() {
       document.getElementById("overlayTambah").style.display = "none";
       document.getElementById("overlayUpdate").style.display = "none";
     }
+
     function confirmDelete(articleId) {
-        if (confirm("Apakah Anda yakin ingin menghapus artikel ini?")) {
-            deleteArticle(articleId);
-        }
+      if (confirm("Apakah Anda yakin ingin menghapus artikel ini?")) {
+        deleteArticle(articleId);
+      }
     }
+
     function deleteArticle(articleId) {
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                location.reload();
-            }
-        };
-        xhr.open("GET", "delete.php?id=" + articleId, true);
-        xhr.send();
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          location.reload();
+        }
+      };
+      xhr.open("GET", "delete.php?id=" + articleId, true);
+      xhr.send();
     }
-</script>
+  </script>
+
+
 
 
 </body>

@@ -1,40 +1,68 @@
 <?php
-// Koneksi ke database (ganti dengan informasi database Anda)
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "artikel";
+if(isset($_POST['id'])) {
+  $id = $_POST['id'];
+  $judul = $_POST['updatedJudul'];
+  $deskripsi = $_POST['updatedDeskripsi'];
+  $topik = $_POST['updatedTopik'];
+  $penulis = $_POST['updatedPenulis'];
+  $tanggal = $_POST['updatedTanggal'];
+  $link = $_POST['updatedLink'];
 
-// Buat koneksi
-$conn = new mysqli($servername, $username, $password, $dbname);
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "artikel";
 
-// Periksa koneksi
-if ($conn->connect_error) {
+  $conn = new mysqli($servername, $username, $password, $dbname);
+
+  if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
-}
+  }
 
-// Tangkap data yang dikirimkan melalui form
-$selectedColumn = $_POST['selectColumn'];
-$updatedValue = $_POST['updatedValue'];
+  // Persiapkan array untuk menyimpan kueri SQL yang akan dieksekusi
+  $updateQueries = array();
 
-// id
-$id = isset($_POST['id']) ? $_POST['id'] : null;
+  // Periksa setiap input, jika tidak kosong, tambahkan ke array kueri update
+  if (!empty($judul)) {
+    $updateQueries[] = "judul='$judul'";
+  }
+  if (!empty($deskripsi)) {
+    $updateQueries[] = "deskripsi='$deskripsi'";
+  }
+  if (!empty($topik)) {
+    $updateQueries[] = "topik='$topik'";
+  }
+  if (!empty($penulis)) {
+    $updateQueries[] = "penulis='$penulis'";
+  }
+  if (!empty($tanggal)) {
+    $updateQueries[] = "tanggal='$tanggal'";
+  }
+  if (!empty($link)) {
+    $updateQueries[] = "link='$link'";
+  }
 
-if ($id === null) {
-  echo "ID tidak ditemukan";
-  exit;
-}
+  // Jika ada setidaknya satu kueri update yang akan dieksekusi
+  if (!empty($updateQueries)) {
+    // Gabungkan semua kueri menjadi satu kueri update utuh
+    $updateQuery = "UPDATE artikel SET " . implode(", ", $updateQueries) . " WHERE id='$id'";
 
+    // Jalankan kueri update
+    if ($conn->query($updateQuery) === TRUE) {
+      echo "<script>alert('Artikel berhasil diperbarui');</script>";
+      header("Location: admin.php");
+      exit();
+    } else {
+      echo "Error: " . $updateQuery . "<br>" . $conn->error;
+    }
+  } else {
+    echo "<script>alert('Tidak ada perubahan yang dimasukkan');</script>";
+    header("Location: admin.php");
+    exit();
+  }
 
-// Persiapkan query untuk memperbarui data artikel berdasarkan kolom yang dipilih
-$sql = "UPDATE artikel SET $selectedColumn='$updatedValue' WHERE id='$id'";
-
-if ($conn->query($sql) === TRUE) {
-    echo "<script>alert('Artikel berhasil diperbarui $id');</script>";
+  $conn->close();
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+  echo "ID tidak valid";
 }
-
-// Tutup koneksi
-$conn->close();
 ?>

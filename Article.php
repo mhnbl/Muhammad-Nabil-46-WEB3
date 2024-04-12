@@ -99,26 +99,50 @@ $result = $conn->query($sql);
 
 <!-- ======= Articles Section ======= -->
 <section id="artikel" class="artikel">
+  <?php
+  // Ambil nilai topik dari query string
+  $topik = isset($_GET['topik']) ? $_GET['topik'] : 'Semua';
+  ?>
   <div class="container">
-
     <div class="section-title">
       <h2>Artikel</h2>
       <p>Temukan rahasia kebugaran, nutrisi, dan kesehatan mental dalam koleksi artikel pilihan kami, dirancang untuk membantu Anda mencapai potensi terbaik Anda.</p>
     </div>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        Pilih Topik
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="#" onclick="ubahTopik('Semua')">Semua</a></li>
+        <li><a class="dropdown-item" href="#" onclick="ubahTopik('Gaya Hidup')">Gaya Hidup</a></li>
+        <li><a class="dropdown-item" href="#" onclick="ubahTopik('Makan')">Makan</a></li>
+        <li><a class="dropdown-item" href="#" onclick="ubahTopik('Obat')">Obat</a></li>
+      </ul>
+    </div>
+
     <div class="row gy-4">
       <div class="col-lg-3">
         <ul class="nav nav-tabs flex-column">
           <?php
-          // Ambil data artikel dari database
-          $sql = "SELECT * FROM artikel";
+          if ($topik == "Semua") {
+            $sql = "SELECT * FROM artikel";
+          }
+          if ($topik == "Gaya Hidup") {
+            $sql = "SELECT * FROM artikel WHERE topik='Gaya Hidup'";
+          }
+          if ($topik == "Makan") {
+            $sql = "SELECT * FROM artikel WHERE topik='Makan'";
+          }
+          if ($topik == "Obat") {
+            $sql = "SELECT * FROM artikel WHERE topik='Obat'";
+          }
           $result = $conn->query($sql);
           $counter = 1;
           if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-              // Tampilkan judul artikel sebagai tab
               echo "<li class='nav-item px-1'>";
               echo "<a class='nav-link";
-              if ($counter == 1) echo " active show"; // Aktifkan tab pertama
+              if ($counter == 1) echo " active show"; 
               echo "' data-bs-toggle='tab' href='#tab-" . $counter . "'>" . $row["judul"] . "</a>";
               echo "</li>";
               $counter++;
@@ -127,6 +151,7 @@ $result = $conn->query($sql);
           ?>
         </ul>
       </div>
+
       <div class="col-lg-9">
         <div class="tab-content">
           <?php
@@ -267,9 +292,10 @@ $result = $conn->query($sql);
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="main.js"></script>
   <script>
-  
+    function ubahTopik(topikBaru) {
+      window.location.href = '<?php echo $_SERVER['PHP_SELF']; ?>?topik=' + topikBaru;
+    }
   </script>
-
 
 </body>
 
