@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2024 at 04:47 AM
+-- Generation Time: Apr 12, 2024 at 03:02 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -86,21 +86,9 @@ CREATE TABLE `kontak` (
 --
 
 INSERT INTO `kontak` (`id`, `nama`, `email`, `subjek`, `pesan`) VALUES
-(31, 'wiaaew', 'cykblyat4@gmail.com', 'Request for Access to r/DnD', 'asd'),
-(32, 'mhnl', 'cykblyat4@gmail.com', 'Request for Access to r/DnD', 'teat'),
-(33, 'cx', 'cykblyat4@gmail.com', 'm', 'm'),
-(34, 'cx', 'cykblyat4@gmail.com', 'm', 'm'),
-(35, 'cx', 'cykblyat4@gmail.com', 'm', 'm'),
-(36, 'cx', 'cykblyat4@gmail.com', 'm', 'm'),
-(37, 'cx', 'cykblyat4@gmail.com', 'm', 'm'),
-(38, 'cx', 'cykblyat4@gmail.com', 'm', 'm'),
-(39, 'cx', 'cykblyat4@gmail.com', 'm', 'm'),
-(40, 'cx', 'cykblyat4@gmail.com', 'm', 'm'),
-(41, 'cx', 'cykblyat4@gmail.com', 'm', 'm'),
-(42, 'cx', 'cykblyat4@gmail.com', 'm', 'm'),
-(43, 'cx', 'cykblyat4@gmail.com', 'm', 'm'),
-(44, 'cx', 'cykblyat4@gmail.com', 'm', 'm'),
-(45, 'cx', 'cykblyat4@gmail.com', 'm', 'm');
+(46, 'Tejo Busandrio', 'tejobnsi@outlook.com', 'Lorem', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus ipsa velit maiores ab molestiae quo error provident quisquam fugit iusto!\r\n'),
+(47, 'Rahmadi Ulawani', 'mandirah007@gmail.com', 'Ipsum', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus ipsa velit maiores ab molestiae quo error provident quisquam fugit iusto!\r\n'),
+(48, 'Maulanrfin Ahman', 'maulman@yahoo.com', 'Dolor', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus ipsa velit maiores ab molestiae quo error provident quisquam fugit iusto!\r\n');
 
 --
 -- Indexes for dumped tables
@@ -126,13 +114,13 @@ ALTER TABLE `kontak`
 -- AUTO_INCREMENT for table `artikel`
 --
 ALTER TABLE `artikel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `kontak`
 --
 ALTER TABLE `kontak`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
